@@ -1,3 +1,3 @@
-# pkg-template-ts
+# tiny-rx
 
-The template for package using typescript.
+The tiny implementation of RxJS.
