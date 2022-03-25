@@ -1,4 +1,4 @@
-import Observable, { of } from '../src'
+import Observable from '../src'
 
 describe('Observable', () => {
     test('construct', () => {
@@ -25,8 +25,28 @@ describe('Observable', () => {
     })
 })
 
-// describe('Operators', ()=>{
-//     test('of', ()=>{
+describe('Operators', () => {
+    test('of', () => {
+        let result = ''
+        let ob = Observable.of(1, 2, 3)
+        ob.subscribe((val) => {
+            result += val
+        })
+        expect(result).toBe('123')
+    })
 
-//     })
-// })
+    test('from:non-promise', async () => {
+        let result = ''
+        Observable.from([1, 2, 3]).subscribe((val) => {
+            result += val
+        })
+        expect(result).toBe('123')
+    })
+
+    test('from:promise', (done) => {
+        Observable.from(Promise.resolve(1)).subscribe((val) => {
+            expect(val).toBe(1)
+            done()
+        })
+    })
+})
