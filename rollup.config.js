@@ -14,7 +14,7 @@ const banner = `/*!
 */`
 
 // 在这里指定挂载全局的包名称
-const BundleName = ''
+const BundleName = 'TinyRx'
 assert.ok(BundleName, '请输入正确的包名称!')
 const commonOutput = {
     name: BundleName,
